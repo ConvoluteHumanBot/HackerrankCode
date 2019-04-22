@@ -1,7 +1,7 @@
 typedef struct layer{
     int size;
-    int *s;
-    int *s2;
+    int *s; //Layer to be copied
+    int *s2; //Final layer rotated
 }layer;
 
 void matrixRotation(int mr, int mc, int** mtx, int r) {
@@ -36,7 +36,6 @@ void matrixRotation(int mr, int mc, int** mtx, int r) {
         }
         //Perform the rotation on the layer
         //Every element swaps with the next rotation modulo
-        int buffer=layers[z].s[0];
         int idx=r%layers[z].size;
         int llen=layers[z].size;
         for(int i=0;i<idx;i++){
